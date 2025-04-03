@@ -84,7 +84,7 @@ void Bureaucrat::decrementGrade()
 
 void	Bureaucrat::signForm(Form &form)
 {
-	if (form.getSigned())
+	if (form.getSigned() == true)
 	{
 		std::cout << YELLOW << this->_name << " cannot sign " << form.getName() << " because it's already signed" << RESET << std::endl;
 		return ;

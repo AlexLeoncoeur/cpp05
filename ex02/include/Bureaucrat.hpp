@@ -5,7 +5,7 @@
 # include "colors.hpp"
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -26,7 +26,8 @@ public:
 
 	void		incrementGrade();
 	void		decrementGrade();
-	void		signForm(Form &form);
+	void		signForm(AForm &form);
+	void		executeForm(AForm const &form);
 
 	std::string getName() const;
 	int 		getGrade() const;

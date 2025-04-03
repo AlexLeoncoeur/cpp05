@@ -82,9 +82,9 @@ void Bureaucrat::decrementGrade()
 	return ;
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
-	if (form.getSigned())
+	if (form.getSigned() == true)
 	{
 		std::cout << YELLOW << this->_name << " cannot sign " << form.getName() << " because it's already signed" << RESET << std::endl;
 		return ;
@@ -106,4 +106,25 @@ std::ostream& operator<<(std::ostream &outStream, const Bureaucrat &bureaucrat)
 {
 	outStream << GREEN << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << RESET;
 	return (outStream);
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	if (form.getSigned() == false)
+	{
+		std::cout << RED << this->_name << " cannot execute " << form.getName() << " because it's not signed" << RESET << std::endl;
+		return ;
+	}
+	try
+	{
+		if (this->_grade > form.getExecGrade())
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << this->_name << " cannot execute because " << e.what() << RESET << std::endl;
+		return ;
+	}
+	std::cout << YELLOW << this->_name << " executes " << form.getName() << std::endl;
+	form.execute(*this);
 }

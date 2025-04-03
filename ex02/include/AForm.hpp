@@ -20,7 +20,7 @@ public:
 
 	AForm();
 	AForm(std::string name, int signGrade, int execGrade);
-	AForm(const Form &copy);
+	AForm(const AForm &copy);
 	~AForm();
 
 	AForm& operator=(const AForm &copy);

@@ -85,7 +85,7 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 std::ostream& operator<<(std::ostream &outStream, const AForm &form)
 {
 	outStream	<< MAGENTA << "Form name : " << YELLOW << form.getName() << RESET << std::endl;
-	if (form.getSigned())
+	if (form.getSigned() == true)
 		outStream	<< MAGENTA << "Form signed : " << GREEN << "True" << RESET << std::endl;
 	else
 		outStream	<< MAGENTA << "Form signed : " << RED << "False" << RESET << std::endl;

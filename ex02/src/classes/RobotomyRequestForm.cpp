@@ -21,7 +21,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AFor
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << GREEN << "RobotomyRequestForm destructor called" << RESET << std::endl;
+	std::cout << RED << "RobotomyRequestForm destructor called" << RESET << std::endl;
 	return ;
 }
 
@@ -42,10 +42,15 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	int random = rand() % 2;
 	if (random == 0)
 	{
-		std::cout << BLUE << _target << " has been robotomized successfully" << RESET << std::endl;
+		std::cout << YELLOW << _target << " has been robotomized" << GREEN << " successfully" << RESET << std::endl;
 	}
 	else
 	{
 		std::cout << RED << _target << " has failed to be robotomized" << RESET << std::endl;
 	}
+}
+
+std::string RobotomyRequestForm::getTarget() const
+{
+	return (this->_target);
 }

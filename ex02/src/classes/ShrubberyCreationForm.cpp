@@ -70,3 +70,8 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	outFile << "            |           " << std::endl;
 	outFile << "            |           " << std::endl;
 }
+
+std::string ShrubberyCreationForm::getTarget() const
+{
+	return (this->_target);
+}
