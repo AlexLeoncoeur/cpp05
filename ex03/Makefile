@@ -16,7 +16,8 @@ RED		= \033[31;1m
 CPP_FILES = main.cpp\
 
 CLASS_CPP_FILES =  Bureaucrat.cpp AForm.cpp \
-				PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+				PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp \
+				Intern.cpp
 #SRC_FILES = $(shell find $(SRC_DIR) -name '*.cpp')
 
 # DIRECTORIES 

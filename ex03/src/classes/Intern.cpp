@@ -38,7 +38,8 @@ AForm	*Intern::makeForm(const std::string form, const std::string target) const
 			return ((this->*pointerToConstructor[i])(target));
 		}
 	}
-	std::cerr << RED << "error: not valid form" << RESET << std::endl, exit(1);
+	std::cerr << RED << "error: not valid form" << RESET << std::endl;
+	return (nullptr);
 }
 
 AForm	*Intern::returnPresidentialPardonForm(std::string target) const
