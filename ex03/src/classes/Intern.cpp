@@ -33,8 +33,12 @@ AForm	*Intern::makeForm(const std::string form, const std::string target) const
 	for (int i = 0; i < 3; i++)
 	{
 		if (!forms[i].compare(form))
+		{
+			std::cout << YELLOW << "Intern creates " << form << RESET << std::endl; 
 			return ((this->*pointerToConstructor[i])(target));
+		}
 	}
+	std::cerr << RED << "error: not valid form" << RESET << std::endl, exit(1);
 }
 
 AForm	*Intern::returnPresidentialPardonForm(std::string target) const
