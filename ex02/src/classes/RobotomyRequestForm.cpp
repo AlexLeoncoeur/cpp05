@@ -35,7 +35,7 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 	return (*this);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
+void	RobotomyRequestForm::action(Bureaucrat const &executor) const
 {
 	std::cout << YELLOW << "*Drilling noises*" << RESET << std::endl;
 	srand(time(NULL));

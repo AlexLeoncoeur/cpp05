@@ -82,6 +82,27 @@ void	AForm::beSigned(const Bureaucrat &bureaucrat)
 
 }
 
+bool				AForm::execute(Bureaucrat const &executor) const
+{
+	if (this->_signed == false)
+	{
+		std::cout << RED << executor.getName() << " cannot execute " << this->_name << " because it's not signed" << RESET << std::endl;
+		return (false);
+	}
+	try
+	{
+		if (executor.getGrade() > this->_execGrade)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << executor.getName() << " cannot execute because " << e.what() << RESET << std::endl;
+		return (false);
+	}
+	return (true);
+}
+
+
 std::ostream& operator<<(std::ostream &outStream, const AForm &form)
 {
 	outStream	<< MAGENTA << "Form name : " << YELLOW << form.getName() << RESET << std::endl;

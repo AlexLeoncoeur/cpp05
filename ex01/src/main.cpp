@@ -22,5 +22,6 @@ int	main(void)
 	b1.signForm(form1);
 	std::cout	<< wrongForm << std::endl;
 	b1.signForm(wrongForm);
+	std::cout	<< wrongForm << std::endl;
 	return (0);
 }

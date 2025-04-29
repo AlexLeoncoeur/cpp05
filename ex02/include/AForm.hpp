@@ -21,12 +21,13 @@ public:
 	AForm();
 	AForm(std::string name, int signGrade, int execGrade);
 	AForm(const AForm &copy);
-	~AForm();
+	virtual ~AForm();
 
 	AForm& operator=(const AForm &copy);
 
-	void		beSigned(const Bureaucrat &bureaucrat);
-	virtual void		execute(Bureaucrat const &executor) const = 0;
+	void				beSigned(const Bureaucrat &bureaucrat);
+	bool				execute(Bureaucrat const &executor) const;
+	virtual void		action(Bureaucrat const &executor) const = 0;
 
 	std::string getName() const;
 	bool		getSigned() const;
